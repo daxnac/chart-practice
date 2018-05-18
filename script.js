@@ -11,7 +11,8 @@ google.charts.load('current', {'packages':['corechart', 'bar', 'timeline']});
 google.charts.setOnLoadCallback(drawChartBar);
 
 function showTimeline() {
-  drawChartTime()
+  let color = document.getElementById("color").value
+  drawChartTime(color)
 }
 
 // Callback that creates and populates a data table,
@@ -110,7 +111,7 @@ function drawChartDonate() {
         chart.draw(data, options);
 }
 
-function drawChartTime() {
+function drawChartTime(color) {
   var container = document.getElementById('time-chart');
   var chart = new google.visualization.Timeline(container);
   var dataTable = new google.visualization.DataTable();
@@ -124,8 +125,12 @@ function drawChartTime() {
     [ '2 Major Class',  new Date(2019, 8, 1),  new Date(2020, 4, 1) ],
     [ '12 Major Class',  new Date(2020, 8, 1),  new Date(2021, 4, 1) ]
   ]);
+  
+  var options = {
+    timeline: { singleColor: color },
+  };
 
-  chart.draw(dataTable);  
+  chart.draw(dataTable, options);  
 }
 
 function drawChartBar() {
