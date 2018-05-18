@@ -7,9 +7,12 @@ google.charts.load('current', {'packages':['corechart', 'bar', 'timeline']});
 //google.charts.setOnLoadCallback(drawChart1);
 //google.charts.setOnLoadCallback(drawChart2);
 //google.charts.setOnLoadCallback(drawChartDonate);
-google.charts.setOnLoadCallback(drawChartTime);
+//google.charts.setOnLoadCallback(drawChartTime);
 google.charts.setOnLoadCallback(drawChartBar);
 
+function showTimeline() {
+  drawChartTime()
+}
 
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
